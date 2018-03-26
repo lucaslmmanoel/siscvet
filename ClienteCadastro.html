@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
+
+    <title>SISCVET</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="ficha.css" rel="stylesheet">
+</head>
+
+<body>
+<!-- Esta é a navabar do sistema -->
+<nav  class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.html">SISCVET</a>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Nome de usuario</a>
+        </li>
+    </ul>
+    <ul class="navbar-nav px-3">
+
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Sair</a>
+        </li>
+    </ul>
+</nav>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <span data-feather="home"></span>
+                            Relatorios
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Fichadeatendimento.html">
+                            <span data-feather="file"></span>
+                            Fichas de atendimento
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="edit"></span>
+                            cadastros
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="users"></span>
+                            Clientes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="briefcase"></span>
+                            Funcionários
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>
+
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 class="h2">Novo Cliente</h1>
+
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2">
+                        <button class="btn btn-sm btn-outline-secondary">Novo Cliente</button>
+                    </div>
+                    <div class="btn-group mr-2">
+                        <button class="btn btn-sm btn-outline-secondary">Novo Animal</button>
+                    </div>
+                    <div class="btn-group mr-2">
+                        <button class="btn btn-sm btn-outline-secondary">Novo Funcionário</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-10 offset-md-1">
+
+                <!-- Nome -->
+                <div class="form-row mt-4">
+                    <div class="col-sm-5 pb-3">
+                        <label for="idNome">Nome Completo</label>
+                        <input type="text" class="form-control" id="idNome" >
+                    </div>
+
+                    <div class="col-sm-3 pb-3">
+                        <label for="idNomeus">Nome de Usuário</label>
+                        <input type="text" class="form-control" id="idNomeus" >
+                    </div>
+                    <div class="col-sm-2 pb-3">
+                        <label for="idTipo">Tipo</label>
+                        <select class="custom-select" id="idTipo">
+                            <option selected value="2">Física</option>
+                            <option value="2">Jurídica</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-10 offset-md-1">
+                <div class="form-row mt-4">
+                    <div class="col-sm-2 pb-3">
+                        <label for="idCpf">CPF</label>
+                        <input type="text" class="form-control" id="idCpf">
+                    </div>
+                    <div class="col-sm-2 pb-3">
+                        <label for="idNasc">Nascimento</label>
+                        <input type="date" class="form-control" id="idNasc">
+                    </div>
+                    <div class="col-sm-2 pb-3">
+                        <label>Sexo</label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="sex" id="idMasc" value="option1">
+                            <label class="form-check-label" for="idMasc">Masculino</label>
+
+                            <input class="form-check-input" type="radio" name="sex" id="idFem" value="option2">
+                            <label class="form-check-label" for="idFem">Feminino</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-10 offset-md-1">
+                <div class="form-row mt-4">
+                    <div class="col-sm-4 pb-3">
+                        <label for="idTel1">Telefone</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">icon</span></div>
+                            <input type="text" class="form-control" id="idTel1" placeholder="XX XXXXX-XXXX">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 pb-3">
+                        <label for="idTel2">Telefone</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">icon</span></div>
+                            <input type="text" class="form-control" id="idTel2" placeholder="XX XXXXX-XXXX">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-10 offset-md-1">
+                <div class="form-row mt-4">
+
+                    <div class="col-sm-4 pb-3">
+                        <label for="idEmail">E-mail</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">icon</span></div>
+                            <input type="text" class="form-control" id="idEmail" placeholder="Exemplo@email.com">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-10 offset-md-1">
+                <div class="form-row mt-4">
+                    <div class="col-sm-2 pb-3">
+                        <label for="idCep">CEP</label>
+                        <input type="number" class="form-control" id="idCep">
+                    </div>
+
+                    <div class="col-sm-4 pb-3">
+                        <button type="submit" class="btn btn-primary col-4" style="margin-top: 30px" >Pesquisar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-10 offset-md-1">
+                <div class="form-row mt-4">
+                    <div class="col-sm-4 pb-3">
+                        <label for="idEnd">Endereço</label>
+                        <input type="number" class="form-control" id="idEnd">
+                    </div>
+
+                    <div class="col-sm-2 pb-2">
+                        <label for="idNum">Número</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">N°</span></div>
+                            <input type="text" class="form-control" id="idNum">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 pb-2">
+                        <label for="idBairro">Bairro</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Bairro</span></div>
+                            <input type="text" class="form-control" id="idBairro">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-10 offset-md-1">
+                <div class="form-row mt-4">
+
+                    <div class="col-sm-4 pb-3">
+                        <label for="idEnd">Cidade</label>
+                        <input type="number" class="form-control" id="idEnd">
+                    </div>
+
+                    <div class="col-sm-4 pb-3">
+                        <label for="idEnd">Estado</label>
+                        <input type="number" class="form-control" id="idEnd">
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+  ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="node_modules/popper.js/dist/popper.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Icons -->
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+
+<script>
+    feather.replace()
+</script>
+
+<!-- Graphs -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+
+</body>
+
+</html>

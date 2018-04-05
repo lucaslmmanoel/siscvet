@@ -1,0 +1,17 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+#backde{
+    width: 100%;
+    height:100vh;
+    background-size: cover;
+    background-image: linear-gradient(to top, #dbdcd7 0%,
+    #dddcd7 24%,
+    #e2c9cc 30%, 
+    #e7627d 46%,
+    #b8235a 59%,
+    #801357 71%,
+    #3d1635 84%,
+    #1c1a27 100%);
+}

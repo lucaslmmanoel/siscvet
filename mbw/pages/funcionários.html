@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MGW - Clientes</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+     <!-- Adicionando JQuery -->
+     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+     crossorigin="anonymous"></script>
+
+<!-- Adicionando Javascript -->
+<script type="text/javascript" >
+
+ $(document).ready(function() {
+
+     function limpa_formulário_cep() {
+         // Limpa valores do formulário de cep.
+         $("#rua").val("");
+         $("#bairro").val("");
+         $("#cidade").val("");
+         $("#uf").val("");
+         $("#ibge").val("");
+     }
+
+     //Quando o campo cep perde o foco.
+     $("#cep").blur(function() {
+
+         //Nova variável "cep" somente com dígitos.
+         var cep = $(this).val().replace(/\D/g, '');
+
+         //Verifica se campo cep possui valor informado.
+         if (cep != "") {
+
+             //Expressão regular para validar o CEP.
+             var validacep = /^[0-9]{8}$/;
+
+             //Valida o formato do CEP.
+             if(validacep.test(cep)) {
+
+                 //Preenche os campos com "..." enquanto consulta webservice.
+                 $("#rua").val("...");
+                 $("#bairro").val("...");
+                 $("#cidade").val("...");
+                 $("#uf").val("...");
+                 $("#ibge").val("...");
+
+                 //Consulta o webservice viacep.com.br/
+                 $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+
+                     if (!("erro" in dados)) {
+                         //Atualiza os campos com os valores da consulta.
+                         $("#rua").val(dados.logradouro);
+                         $("#bairro").val(dados.bairro);
+                         $("#cidade").val(dados.localidade);
+                         $("#uf").val(dados.uf);
+                         $("#ibge").val(dados.ibge);
+                     } //end if.
+                     else {
+                         //CEP pesquisado não foi encontrado.
+                         limpa_formulário_cep();
+                         alert("CEP não encontrado.");
+                     }
+                 });
+             } //end if.
+             else {
+                 //cep é inválido.
+                 limpa_formulário_cep();
+                 alert("Formato de CEP inválido.");
+             }
+         } //end if.
+         else {
+             //cep sem valor, limpa formulário.
+             limpa_formulário_cep();
+         }
+     });
+ });
+
+</script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Iniciando a navegação do site com uma navbar para podermos redirecionar a funcionalidades rápidas,
+        as que forem julgadas, precisamos disso em menos de 5s, as notificações e etc...
+        -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">MBW</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope fa-fw"></i>
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <!-- Nesse campo iremos criar uma campo para notificações importantes-->
+
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>Lucas Manoel</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Five Minutes ago</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>João Lima</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>Fulano de tal</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Read All Messages</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
+                <!-- /.dropdown-tasks -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i>
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="login.html">
+                                <i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="home.html">
+                                <i class="fa fa-dashboard fa-fw"></i> Home</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-bar-chart-o fa-fw"></i> Cadastros
+                                <span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="cliente.html">Cadatros de Clientes</a>
+                                </li>
+                                <li>
+                                    <a href="animais.html">Cadatros de Animais</a>
+                                </li>
+                                <li>
+                                    <a href="funcionários.html">Cadatros de Funcionários</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="ficha.html">
+                                <i class="fa fa-dashboard fa-fw"></i> Ficha de Atendimento</a>
+                        </li>
+
+                        <li>
+                            <a href="tables.html">
+                                <i class="fa fa-table fa-fw"></i> Lorem</a>
+                        </li>
+                        <li>
+                            <a href="forms.html">
+                                <i class="fa fa-edit fa-fw"></i> Lorem</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-wrench fa-fw"></i> Ipsum
+                                <span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="panels-wells.html">Denium</a>
+                                </li>
+                                <li>
+                                    <a href="buttons.html">Meditium</a>
+                                </li>
+                                <li>
+                                    <a href="notifications.html">Lorem</a>
+                                </li>
+                                <li>
+                                    <a href="typography.html">Lorem</a>
+                                </li>
+                                <li>
+                                    <a href="icons.html">Lorem</a>
+                                </li>
+                                <li>
+                                    <a href="grid.html">Lorem</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <!-- /.nav-second-level -->
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- Aqui tera uma tabela listando as fichas de atendimento com seus respectivos podendo altera-las
+            incluir tambem um botão de nova ficha de atendimento
+            incluir um botão de Ver fichas de atendimento já finalizadas
+        -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <h1 class="page-header">Cadastro de Funcionários</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12" style="margin-bottom:20px">
+                    <button class="btn btn-primary">Nova ficha</button>
+                    <button class="btn btn-primary">Nova ficha</button>
+                    <button class="btn btn-primary">Nova ficha</button>
+                </div>
+            </div>
+
+            <!--forms -->
+         <form method="get" action=".">
+            <!--1° Linha-->
+    <div class="col-md-12 offset-md-1 form-group">
+
+        <!-- Nome -->
+        <div class="form-row mt-4">
+            <div class="col-sm-6 pb-3">
+                <label for="idNome">Nome Completo</label>
+                <input type="text" class="form-control" id="idNome" >
+            </div>
+
+        <!--nome usuario-->
+            <div class="col-sm-4 pb-3">
+                <label for="idNomeus">Nome de Usuário</label>
+                <input type="text" class="form-control" id="idNomeus" >
+            </div>
+
+        <!--CRMV-->
+        <div class="col-sm-2 pb-3">
+                <label for="idCrmv">CRMV</label>
+                <input type="text" class="form-control" name="crmv" id="idCrmv" maxlength="14">
+            </div>
+
+        </div>
+    </div>
+
+
+            <!--2° Linha-->
+    <div class="col-md-10 offset-md-1 form-group">
+        <div class="form-row mt-4">
+
+            <!--Cpf-->
+            <div class="col-sm-3 pb-3">
+                <label for="cpf">CPF</label>
+                <input type="text" class="form-control cpf-mask" name="cpf" id="cpf" placeholder="Ex.: 000.000.000-00" maxlength="14">
+            </div>
+
+            <!--nascimento-->
+            <div class="col-sm-3 pb-3">
+                <label for="idNasc">Nascimento</label>
+                <input type="date" class="form-control" id="idNasc">
+            </div>
+
+            <!--sexo-->
+            <div class="col-sm-3 pb-3">
+                <label>Sexo</label>
+                <br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="sex" id="idMasc" value="option1">
+                    <label class="form-check-label" for="idMasc">Masculino</label>
+
+                    <input class="form-check-input" type="radio" name="sex" id="idFem" value="option2">
+                    <label class="form-check-label" for="idFem">Feminino</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            <!--3°Linha-->
+    <div class="col-md-10 offset-md-1 form-group">
+        <div class="form-row ">
+
+            <!--Telefone-->
+            <div class="col-sm-3 pb-3">
+                    <div class="form-group">
+                            <label for="idTel1">Telefone</label>
+                            <div class="input-group">
+                              <div class="input-group-addon">icon
+                              </div>
+                              <input type="text" class="form-control" id="idTel1" placeholder="XX XXXXX-XXXX" maxlength="14">
+                            </div>
+                    </div>
+            </div>
+
+            <!--Celular-->
+            <div class="col-sm-3 pb-3">
+                <div class="form-group"> 
+                    <label for="idTel2">Celular</label>
+                    <div class="input-group">
+                            <div class="input-group-addon">icon</div>
+                            <input type="text" class="form-control" id="idTel2" placeholder="XX XXXXX-XXXX" maxlength="14">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <!--4° Linha-->
+    <div class="col-md-10 offset-md-1 form-group">
+        <div class="form-row mt-4">
+
+            <!--email-->
+            <div class="col-sm-6 pb-3">
+                <label for="idEmail">E-mail</label>
+                <div class="input-group">
+                        <div class="input-group-addon">icon</div>
+                        <input type="text" class="form-control" id="idEmail" placeholder="Exemplo@email.com">
+                </div>
+            </div>
+
+            <!--senha-->
+            <div class="col-sm-3 pb-3">
+                    <label for="idSenha">Senha</label>
+                            <input type="password" class="form-control" id="idSenha" >
+                </div>
+
+            <!--Perfil de Acesso-->    
+                <div class="col-sm-3 pb-3">
+                        <label for="idPerfil">Perfil de Acesso</label>
+                        <select class="custom-select form-control" id="idPerfil">
+                            <option>Gestor</option>
+                            <option>Funcionario</option>
+                            <option>recepcionista</option>
+                        </select>
+                    </div>
+        </div>
+    </div>
+
+            <!--5° Linha-->
+    <div class="col-md-10 offset-md-1 form-group">
+        <div class="form-row mt-4">
+
+            <!--CEP-->
+            <div class="col-sm-2 pb-3">
+                <label for="cep">CEP</label>
+                <input  name="cep" type="text" id="cep" value="" maxlength="9" class="form-control">
+            </div>
+        </div>
+    </div>
+
+            <!--6° Linha-->
+    <div class="col-md-10 offset-md-1">
+        <div class="form-row mt-4">
+
+            <!--Endereço-->
+            <div class="col-sm-4 pb-3">
+                    <div class="form-group">
+                            <div class="input-group">
+                                    <div class="input-group-addon">Rua
+                                    </div>
+                                <input  name="rua" type="text" id="rua" class="form-control">
+                            </div>
+                    </div>
+            </div>
+
+            <!--Bairro-->
+            <div class="col-sm-4 pb-2">
+                <div class="form-group">
+                        <div class="input-group">
+                                <div class="input-group-addon">Bairro
+                                </div>
+                            <input name="bairro" type="text" id="bairro" class="form-control">
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            <!--7° Linha-->
+    <div class="col-md-10 offset-md-1">
+        <div class="form-row mt-4">
+
+            <!--Cidade-->
+            <div class="col-sm-4 pb-3">
+                    <div class="form-group">
+                            <div class="input-group">
+                                    <div class="input-group-addon">Cidade
+                                    </div>
+                                <input name="cidade" type="text" id="cidade" class="form-control">
+                            </div>
+                    </div>
+            </div>
+
+            <!--Estado-->
+            <div class="col-sm-2 pb-3">
+                    <div class="input-group">
+                            <div class="input-group-addon">UF
+                            </div>
+                        <input name="uf" type="text" id="uf" class="form-control">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="col-md-10 offset-md-1">
+            <div class="form-row mt-4" style="margin-left:15px">
+                <button class="btn btn-primary btn-lg" href="#">Concluir</button>
+            </div>    
+        </div>
+   
+ </form>
+</main>
+</div>
+</div>
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../vendor/raphael/raphael.min.js"></script>
+    <script src="../vendor/morrisjs/morris.min.js"></script>
+    <script src="../data/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>

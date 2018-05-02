@@ -6,5 +6,6 @@ include_once '../struct/start.php';
 
 <h1 class="text-center">Funcionários</h1>
 
+
 <?php
 include_once '../struct/end.php';

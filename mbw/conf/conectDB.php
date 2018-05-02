@@ -5,7 +5,7 @@
 
 class Conection {
 	protected $servername ="localhost";
-	protected $banconame = "mbw";
+	protected $banconame = "siscvet";
 	protected $user = "root";
 	protected $pwd  = "";
 

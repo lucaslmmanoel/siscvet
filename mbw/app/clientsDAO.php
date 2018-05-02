@@ -4,7 +4,8 @@ $conn = new Conection();
 include_once '../struct/start.php';
 ?>
 
-<h1 class="text-center">Animais</h1>
+<h1 class="text-center">Clientes</h1>
+
 
 <?php
 include_once '../struct/end.php';

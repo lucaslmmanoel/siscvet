@@ -212,72 +212,39 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html">
+                            <a href="../app/home.php">
                                 <i class="fa fa-dashboard fa-fw"></i>Inicio</a>
                         </li>
+                        
                         <li>
-                            <a href="#">
-                                <i class="fa fa-bar-chart-o fa-fw"></i> Cadastros
-                                <span class="fa arrow"></span>
-                            </a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="cliente.html">Clientes</a>
-                                </li>
-                                <li>
-                                    <a href="animais.html"> Animais</a>
-                                </li>
-                                <li>
-                                    <a href="funcionários.html"> Funcionários</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="../app/servicesDAO.php">
+                                <i class="fa fa-dashboard fa-fw"></i>Fichas de Atendimento</a>
                         </li>
                         <li>
-                            <a href="ficha.html">
-                                <i class="fa fa-dashboard fa-fw"></i> Ficha de Atendimento</a>
+                            <a href="../app/clientsDAO.php">
+                                <i class="fa fa-dashboard fa-fw"></i>Clientes</a>
                         </li>
 
                         <li>
-                            <a href="tables.html">
-                                <i class="fa fa-table fa-fw"></i> Lorem</a>
+                            <a href="../app/animalsDAO.php">
+                                <i class="fa fa-dashboard fa-fw"></i>Animais</a>
                         </li>
                         <li>
-                            <a href="forms.html">
-                                <i class="fa fa-edit fa-fw"></i> Lorem</a>
+                            <a href="../app/workersDAO.php">
+                                <i class="fa fa-dashboard fa-fw"></i>Funcionários</a>
                         </li>
+                        
                         <li>
-                            <a href="#">
-                                <i class="fa fa-wrench fa-fw"></i> Ipsum
-                                <span class="fa arrow"></span>
-                            </a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="panels-wells.html">Denium</a>
-                                </li>
-                                <li>
-                                    <a href="buttons.html">Meditium</a>
-                                </li>
-                                <li>
-                                    <a href="notifications.html">Lorem</a>
-                                </li>
-                                <li>
-                                    <a href="typography.html">Lorem</a>
-                                </li>
-                                <li>
-                                    <a href="icons.html">Lorem</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Lorem</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="../app/adminDAO.php">
+                                <i class="fa fa-dashboard fa-fw"></i>Relatótios</a>
                         </li>
+                        
+                        
                         <!-- /.nav-second-level -->
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
-            </nav>
-        <div id="page-wrapper">
+    </nav>
+        
     

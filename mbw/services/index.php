@@ -1,5 +1,5 @@
 <?php
-include_once '../conf/conectDB.php';
+include_once '../../conf/conectDB.php';
 $conn = new Conection();
 include_once '../struct/start.php';
 ?>

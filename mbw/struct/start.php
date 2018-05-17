@@ -12,18 +12,18 @@
     <title>MGW</title>
 
     
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-    <script src="../vendor/raphael/raphael.min.js"></script>
-    <script src="../vendor/morrisjs/morris.min.js"></script>
-    <script src="../data/morris-data.js"></script>
-    <script src="../dist/js/sb-admin-2.js"></script>
+    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../../vendor/morrisjs/morris.css" rel="stylesheet">
+    <script src="../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="../../vendor/raphael/raphael.min.js"></script>
+    <script src="../../vendor/morrisjs/morris.min.js"></script>
+    <script src="../../data/morris-data.js"></script>
+    <script src="../../dist/js/sb-admin-2.js"></script>
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">MBW</a>
+                <a class="navbar-brand" href="index.php">MBW</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -212,30 +212,30 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="../app/home.php">
+                            <a href="../app/index.php">
                                 <i class="fa fa-dashboard fa-fw"></i>Inicio</a>
                         </li>
                         
                         <li>
-                            <a href="../app/servicesDAO.php">
+                            <a href="../app/services/servicesDAO.php">
                                 <i class="fa fa-dashboard fa-fw"></i>Fichas de Atendimento</a>
                         </li>
                         <li>
-                            <a href="../app/clientsDAO.php">
+                            <a href="../app/clients/clientsDAO.php">
                                 <i class="fa fa-dashboard fa-fw"></i>Clientes</a>
                         </li>
 
                         <li>
-                            <a href="../app/animalsDAO.php">
+                            <a href="../app/animals/animalsDAO.php">
                                 <i class="fa fa-dashboard fa-fw"></i>Animais</a>
                         </li>
                         <li>
-                            <a href="../app/workersDAO.php">
+                            <a href="../app/workers/workersDAO.php">
                                 <i class="fa fa-dashboard fa-fw"></i>Funcionários</a>
                         </li>
                         
                         <li>
-                            <a href="../app/adminDAO.php">
+                            <a href="../app/admin/adminDAO.php">
                                 <i class="fa fa-dashboard fa-fw"></i>Relatótios</a>
                         </li>
                         

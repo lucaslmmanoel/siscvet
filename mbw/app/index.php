@@ -1,15 +1,10 @@
 <?php
-include_once '../conf/conectDB.php';
+include_once '../../conf/conectDB.php';
 $conn = new Conection();
 include_once '../struct/start.php';
-
-class ClientsDao {
-    
-
-}
 ?>
 
-<h1 class="text-center">Clientes</h1>
+<h1 class="text-center">Bem vindo</h1>
 
 
 <?php
